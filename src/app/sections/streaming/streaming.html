@@ -1,0 +1,93 @@
+<section
+  id="streaming"
+  class="relative min-h-[100dvh] flex flex-col py-24 px-5 md:px-10"
+  aria-labelledby="streaming-heading">
+
+  <!-- Ambient glow -->
+  <div class="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-neon/[0.04] blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="reveal flex items-center gap-4 md:gap-6 mb-10 md:mb-14">
+      <span class="section-tag">[ 04 / STREAMING ]</span>
+      <div class="flex-1 neon-line"></div>
+      <span class="section-meta">ALL CHANNELS</span>
+    </div>
+
+    <!-- Title -->
+    <div class="reveal mb-12 md:mb-16 max-w-2xl">
+      <h2
+        id="streaming-heading"
+        class="display text-4xl md:text-6xl lg:text-7xl">
+        &lt; ESCUCHA MIS<br>
+        <span class="neon-text">PLATAFORMAS DIGITALES.</span>
+        &gt;
+      </h2>
+      <p class="font-grotesk text-gray-500 mt-5 text-base md:text-lg">
+        Disponible en todas las plataformas digitales. Elige tu favorita y dale play.
+      </p>
+    </div>
+
+    <!-- Two embeds -->
+    <div class="grid lg:grid-cols-2 gap-6 md:gap-8 mb-8">
+
+      <!-- Spotify -->
+      <div id="spotify-embed" class="reveal">
+
+        <div class="flex items-center justify-between mb-3 px-1">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.434-5.305-1.76-8.786-.963-.335.077-.67-.133-.746-.47-.077-.334.132-.67.47-.745 3.808-.871 7.076-.496 9.712 1.115.293.18.386.563.207.856zm1.223-2.722c-.226.367-.706.482-1.072.257-2.687-1.652-6.785-2.131-9.965-1.166-.413.127-.848-.105-.975-.517-.125-.413.108-.848.52-.975 3.632-1.102 8.147-.568 11.234 1.328.366.226.48.707.258 1.073zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71c-.493.15-1.016-.129-1.166-.623-.148-.495.13-1.016.625-1.166 3.55-1.077 9.456-.869 13.18 1.338.445.264.59.838.327 1.282-.264.443-.838.59-1.282.326z"/>
+            </svg>
+            <span class="font-orbitron text-xs tracking-[3px] uppercase font-bold">Spotify</span>
+          </div>
+          <span class="section-meta">
+            <span class="live-dot"></span>
+            LIVE
+          </span>
+        </div>
+
+        <div class="glass neon-border rounded-3xl p-3 md:p-4 overflow-hidden">
+          <iframe data-testid="embed-iframe" class="rounded-xl block" src="https://open.spotify.com/embed/artist/5kYqEZgLsv5rfS5DnJiVtS?utm_source=generator" width="100%" height="352" frameBorder="0" scrolling="no" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+      </div>
+
+      <!-- Apple Music card -->
+      <div id="apple-music-embed" class="reveal">
+
+        <div class="flex items-center justify-between mb-3 px-1">
+          <div class="flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <span class="font-orbitron text-xs tracking-[3px] uppercase font-bold">Apple Music</span>
+          </div>
+          <span class="font-orbitron text-[10px] tracking-[3px] text-gray-500 uppercase">// EMBED</span>
+        </div>
+
+        <div class="glass neon-border rounded-3xl p-8 md:p-10 flex flex-col items-center justify-center min-h-[376px] relative overflow-hidden">
+          <iframe class="w-full max-w-[660px] overflow-hidden rounded-[10px] block" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/es/album/hackeado-single/1813268709"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Also available on -->
+    <div class="reveal glass rounded-3xl p-5 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+      <p class="font-orbitron text-[10px] tracking-[4px] text-gray-500 uppercase shrink-0 md:border-r md:border-white/10 md:pr-6">
+        // Also available on
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <a target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-full font-grotesk text-xs tracking-wider hover:bg-neon hover:text-black transition-all duration-300 min-h-[36px] flex items-center">YouTube Music</a>
+        <a target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-full font-grotesk text-xs tracking-wider hover:bg-neon hover:text-black transition-all duration-300 min-h-[36px] flex items-center">Tidal</a>
+        <a target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-full font-grotesk text-xs tracking-wider hover:bg-neon hover:text-black transition-all duration-300 min-h-[36px] flex items-center">Deezer</a>
+        <a target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-full font-grotesk text-xs tracking-wider hover:bg-neon hover:text-black transition-all duration-300 min-h-[36px] flex items-center">Amazon Music</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>

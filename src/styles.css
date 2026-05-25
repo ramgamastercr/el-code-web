@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────────── */
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* lock body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ── WCAG: Focus Visible (2.4.7) ───────────────────────── */
+:focus-visible {
+  outline: 2px solid #00FF9C;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Custom Selection ──────────────────────────────────── */
+::selection {
+  background: rgba(0, 255, 156, 0.25);
+  color: #fff;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #00FF9C;
+  border-radius: 2px;
+}
+
+/* ── Glass Utilities ───────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Neon Utilities ────────────────────────────────────── */
+.neon-glow {
+  box-shadow:
+    0 0 20px rgba(0, 255, 156, 0.4),
+    0 0 50px rgba(0, 255, 156, 0.15),
+    0 0 100px rgba(0, 255, 156, 0.05);
+}
+
+.neon-text {
+  color: #00FF9C;
+  text-shadow:
+    0 0 10px rgba(0, 255, 156, 0.8),
+    0 0 20px rgba(0, 255, 156, 0.4),
+    0 0 40px rgba(0, 255, 156, 0.15);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 255, 156, 0.35);
+  box-shadow:
+    inset 0 0 15px rgba(0, 255, 156, 0.04),
+    0 0 15px rgba(0, 255, 156, 0.08);
+}
+
+.neon-line {
+  background: linear-gradient(to right, rgba(0, 255, 156, 0.5), rgba(0, 255, 156, 0.05), transparent);
+  height: 1px;
+}
+
+/* ── Section Header (reusable pattern) ─────────────────── */
+.section-tag {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #00FF9C;
+  white-space: nowrap;
+}
+
+.section-meta {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(0, 255, 156, 0.7);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00FF9C;
+  box-shadow: 0 0 8px #00FF9C;
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ── Glitch Effect ─────────────────────────────────────── */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+.glitch::before {
+  left: 3px;
+  color: #00FF9C;
+  clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
+  animation: glitch-1 4s infinite steps(1);
+}
+
+.glitch::after {
+  left: -3px;
+  color: #ff2d78;
+  clip-path: polygon(0 65%, 100% 65%, 100% 80%, 0 80%);
+  animation: glitch-2 4s infinite steps(1);
+}
+
+@keyframes glitch-1 {
+  0%, 88%, 100% { opacity: 0; transform: translate(0); }
+  90% { opacity: 1; transform: translate(-3px, 2px); }
+  92% { opacity: 1; transform: translate(3px, -1px); clip-path: polygon(0 25%, 100% 25%, 100% 40%, 0 40%); }
+  94% { opacity: 0; }
+}
+
+@keyframes glitch-2 {
+  0%, 78%, 100% { opacity: 0; transform: translate(0); }
+  80% { opacity: 1; transform: translate(3px, -2px); }
+  82% { opacity: 1; transform: translate(-3px, 1px); clip-path: polygon(0 55%, 100% 55%, 100% 75%, 0 75%); }
+  84% { opacity: 0; }
+}
+
+/* ── Scan Lines Overlay ────────────────────────────────── */
+.scanlines {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  z-index: 2;
+}
+
+/* ── Display Heading ───────────────────────────────────── */
+.display {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+/* ── iOS Safe-area: section top padding on notch devices ── */
+@media (max-width: 767px) {
+  section:not(#hero) {
+    padding-top: max(6rem, calc(env(safe-area-inset-top, 0px) + 5rem));
+  }
+}
+
+/* ── Reduced Motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .glitch::before,
+  .glitch::after {
+    display: none;
+  }
+}

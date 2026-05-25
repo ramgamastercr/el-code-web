@@ -1,0 +1,157 @@
+<section
+  id="about"
+  class="relative min-h-[100dvh] flex flex-col py-24 px-5 md:px-10"
+  aria-labelledby="about-heading">
+
+  <!-- Ambient glow -->
+  <div class="absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-neon/[0.04] blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="reveal flex items-center gap-4 md:gap-6 mb-12 md:mb-16">
+      <span class="section-tag">[ 01 / IDENTITY ]</span>
+      <div class="flex-1 neon-line"></div>
+      <span class="section-meta">
+        <span class="live-dot"></span>
+        ACTIVE
+      </span>
+    </div>
+
+    <!-- Main grid -->
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-12 md:mb-16">
+
+      <!-- Tagline + manifesto text -->
+      <div class="lg:col-span-7 reveal">
+        <h2
+          id="about-heading"
+          class="display text-4xl md:text-6xl lg:text-7xl">&lt;
+          UNA FRECUENCIA<br>
+          PARA QUIENES<br>
+          <span class="neon-text">QUIEREN EVOLUCIONAR</span>
+          &gt;
+        </h2>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-xs font-orbitron tracking-[3px] text-gray-500 uppercase">
+          <span>// San José</span>
+          <span class="w-1 h-1 rounded-full bg-gray-700"></span>
+          <span>// Costa Rica</span>
+          <span class="w-1 h-1 rounded-full bg-gray-700"></span>
+          <span>// 9.928°N 84.090°W</span>
+        </div>
+
+        <!-- Manifesto text -->
+        <div class="mt-8 space-y-4 max-w-xl">
+          <p class="font-grotesk text-gray-300 text-base md:text-lg leading-loose">
+            <span class="text-neon select-none">&gt;</span>
+            EL CODE mezcla nostalgia, inteligencia artificial y música urbana mundial.
+          </p>
+          <p class="font-grotesk text-gray-300 text-base md:text-lg leading-loose">
+            <span class="text-neon select-none">&gt;</span>
+            Un universo donde las emociones humanas se conectan con sonidos futuristas, estética cyberpunk y energía latina.
+          </p>
+          <p class="text-neon flex items-center gap-2">
+            <span class="select-none">&gt;</span>
+            <span class="font-orbitron text-sm tracking-[3px]">CONECTANDO</span>
+            <span class="animate-blink" aria-hidden="true">_</span>
+          </p>
+        </div>
+      </div>
+
+      <!--
+        ┌────────────────────────────────────────────────────────────────┐
+        │  IDENTITY PHOTO PLACEHOLDER                                    │
+        │  Swap the <img src> below with your photo.                     │
+        │  Recommended: portrait orientation (4:5), dark/moody lighting. │
+        │  Save to: public/identity.jpg  →  src="identity.jpg"           │
+        └────────────────────────────────────────────────────────────────┘
+      -->
+      <div class="lg:col-span-5 reveal">
+        <article class="glass neon-border rounded-3xl overflow-hidden relative group">
+
+          <!-- terminal header -->
+          <div class="flex items-center gap-2 px-5 py-3 border-b border-white/8 bg-black/40 relative z-10">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-neon/80"></span>
+            <span class="ml-3 font-orbitron text-[10px] text-gray-500 tracking-[3px]">./identity.jpg</span>
+            <span class="ml-auto font-orbitron text-[10px] text-neon/60 tracking-[3px] flex items-center gap-1.5">
+              <span class="live-dot"></span>
+              REC
+            </span>
+          </div>
+
+          <!-- image -->
+          <div class="relative aspect-[4/5] overflow-hidden bg-black">
+            <img
+              src="/identity.jpeg"
+              alt="EL CODE — Retrato artístico con iluminación neón futurista"
+              class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+              loading="eager">
+
+            <!-- gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+            <!-- scan lines -->
+            <div class="absolute inset-0 pointer-events-none opacity-50"
+                 style="background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,255,156,0.05) 3px, rgba(0,255,156,0.05) 6px);"
+                 aria-hidden="true">
+            </div>
+
+            <!-- corner code chip -->
+            <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-md font-orbitron text-[9px] tracking-[2px] text-neon">
+              ID_001
+            </div>
+
+            <!-- top-right corner mark -->
+            <div class="absolute top-3 right-3 font-orbitron text-[9px] text-white/40 tracking-[2px]" aria-hidden="true">
+              ◢
+            </div>
+
+            <!-- bottom metadata strip -->
+            <div class="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between z-10">
+              <div>
+                <p class="font-orbitron text-base font-bold tracking-[3px] text-white uppercase">&lt;31 C0D3&gt;</p>
+                <p class="font-grotesk text-[10px] text-neon/70 tracking-[2px] uppercase mt-0.5">// portrait_v1</p>
+              </div>
+              <span class="font-orbitron text-[10px] text-gray-400 tracking-[2px]">2025</span>
+            </div>
+          </div>
+
+        </article>
+      </div>
+
+    </div>
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+
+      <div class="reveal glass rounded-2xl p-5 md:p-6 hover:bg-white/[0.06] hover:border-neon/30 border border-transparent transition-all duration-300">
+        <p class="font-orbitron text-[10px] text-gray-500 tracking-[3px] uppercase mb-3">[ Origen ]</p>
+        <p class="font-orbitron text-3xl md:text-4xl font-bold neon-text mb-1">CR</p>
+        <p class="font-grotesk text-gray-500 text-xs">Costa Rica</p>
+      </div>
+
+      <div class="reveal glass rounded-2xl p-5 md:p-6 hover:bg-white/[0.06] hover:border-neon/30 border border-transparent transition-all duration-300">
+        <p class="font-orbitron text-[10px] text-gray-500 tracking-[3px] uppercase mb-3">[ Debut ]</p>
+        <p class="font-orbitron text-3xl md:text-4xl font-bold neon-text mb-1">2024</p>
+        <p class="font-grotesk text-gray-500 text-xs">2024-2077</p>
+      </div>
+
+      <div class="reveal glass rounded-2xl p-5 md:p-6 hover:bg-white/[0.06] hover:border-neon/30 border border-transparent transition-all duration-300">
+        <p class="font-orbitron text-[10px] text-gray-500 tracking-[3px] uppercase mb-3">[ Género ]</p>
+        <p class="font-orbitron text-2xl md:text-3xl font-bold neon-text mb-1">URBANO</p>
+        <p class="font-grotesk text-gray-500 text-xs">Música evolucionada y disruptiva</p>
+      </div>
+
+      <div class="reveal glass rounded-2xl p-5 md:p-6 hover:bg-white/[0.06] hover:border-neon/30 border border-transparent transition-all duration-300">
+        <p class="font-orbitron text-[10px] text-gray-500 tracking-[3px] uppercase mb-3">[ Visión ]</p>
+        <p class="font-orbitron text-3xl md:text-4xl font-bold neon-text mb-1">∞</p>
+        <p class="font-grotesk text-gray-500 text-xs">Sin límites</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

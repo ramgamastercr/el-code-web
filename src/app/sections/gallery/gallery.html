@@ -1,0 +1,79 @@
+<section
+  id="gallery"
+  class="relative min-h-[100dvh] flex flex-col py-24 px-5 md:px-10 overflow-hidden"
+  aria-labelledby="gallery-heading">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="reveal flex items-center gap-4 md:gap-6 mb-10 md:mb-14">
+      <span class="section-tag">[ 03 / VISUALS ]</span>
+      <div class="flex-1 neon-line"></div>
+      <span class="section-meta">{{ items.length }} IMAGES</span>
+    </div>
+
+    <!-- Title -->
+    <div class="reveal mb-10 md:mb-14">
+      <h2
+        id="gallery-heading"
+        class="display text-4xl md:text-6xl lg:text-7xl">
+        &lt; EVOLUCIÓN CYBERPUNK<br>
+        <span class="neon-text">MI UNIVERSO VISUAL</span> &gt;
+      </h2>
+      <p class="font-grotesk text-gray-500 mt-5 text-base md:text-lg max-w-xl">
+        Fotografía, identidad visual y estética del futuro. Una galería del universo EL CODE.
+      </p>
+    </div>
+
+    <!-- Asymmetric grid -->
+    <div class="grid grid-cols-12 gap-3 md:gap-5">
+
+      @for (item of items; track item.id) {
+        <article
+          [class]="'reveal relative group rounded-2xl md:rounded-3xl overflow-hidden glass border border-white/10 hover:border-neon/40 transition-all duration-500 ' + item.cls">
+
+          <img
+            [src]="item.src"
+            [alt]="item.alt"
+            class="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-95"
+            loading="lazy">
+
+          <!-- bottom gradient -->
+          <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+          <!-- top-left code chip -->
+          <div class="absolute top-3 left-3 z-10">
+            <span class="bg-black/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-md font-orbitron text-[9px] tracking-[2px] text-neon">
+              {{ item.code }}
+            </span>
+          </div>
+
+          <!-- top-right corner mark -->
+          <div class="absolute top-3 right-3 z-10 font-orbitron text-[9px] text-white/40 tracking-[2px]" aria-hidden="true">
+            ◢
+          </div>
+
+          <!-- bottom label -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 z-10">
+            <p class="font-orbitron text-sm md:text-base font-bold text-white mb-1 tracking-[2px] uppercase">
+              {{ item.label }}
+            </p>
+            <p class="font-grotesk text-xs text-gray-400 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+              {{ item.alt }}
+            </p>
+          </div>
+
+          <!-- scan lines on hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+               style="background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,255,156,0.03) 3px, rgba(0,255,156,0.03) 6px);"
+               aria-hidden="true">
+          </div>
+
+        </article>
+      }
+
+    </div>
+
+  </div>
+
+</section>

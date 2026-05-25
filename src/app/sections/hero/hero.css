@@ -1,0 +1,6 @@
+/* hero-specific tweaks live here; most styles are global */
+
+/* Ensure canvas fills exactly */
+:host {
+  display: block;
+}

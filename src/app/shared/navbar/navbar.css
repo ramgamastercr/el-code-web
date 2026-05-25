@@ -1,0 +1,129 @@
+/* ── Navbar shell ─────────────────────────────────────── */
+.navbar {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  border-bottom: 1px solid transparent;
+  /* Push content below Dynamic Island / notch when viewport-fit=cover is set */
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* ── Logo image (hard sizing wins over any cached classes) */
+.nav-logo-img {
+  height: 24px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .nav-logo-img {
+    height: 28px;
+    max-width: 140px;
+  }
+}
+
+.navbar--scrolled {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Desktop links ────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(229, 229, 229, 0.7);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-link-idx {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.55rem;
+  color: rgba(0, 255, 156, 0.5);
+  letter-spacing: 2px;
+}
+
+.nav-link-label {
+  position: relative;
+}
+
+.nav-link-label::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #00FF9C;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s ease;
+}
+
+.nav-link:hover {
+  color: #00FF9C;
+}
+
+.nav-link:hover .nav-link-idx {
+  color: #00FF9C;
+}
+
+.nav-link:hover .nav-link-label::after {
+  transform: scaleX(1);
+}
+
+/* ── Hamburger ────────────────────────────────────────── */
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  transform-origin: center;
+}
+
+.open-1 {
+  background: #00FF9C;
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.open-2 {
+  opacity: 0;
+}
+
+.open-3 {
+  background: #00FF9C;
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile overlay ───────────────────────────────────── */
+.mobile-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.mobile-overlay--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0s;
+}
+
+/* iOS safe area: clears navbar + Dynamic Island top, home indicator bottom */
+.mobile-overlay-content {
+  /* 4rem = h-16 navbar height; adding safe-area-top ensures content clears Dynamic Island */
+  padding-top: max(6rem, calc(env(safe-area-inset-top, 0px) + 4rem));
+  padding-bottom: max(2.5rem, env(safe-area-inset-bottom, 0px));
+}

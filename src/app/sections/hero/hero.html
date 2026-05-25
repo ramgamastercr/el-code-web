@@ -1,0 +1,89 @@
+<section
+  id="hero"
+  class="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-black"
+  aria-labelledby="hero-heading">
+
+  <!-- Matrix rain canvas — decorative -->
+  <canvas
+    #matrixCanvas
+    class="absolute inset-0 w-full h-full opacity-70"
+    aria-hidden="true">
+  </canvas>
+
+  <!-- Scan lines overlay — decorative -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Radial glow orbs — decorative -->
+  <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-neon/8 blur-[140px] pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-0 right-[-5%] w-[350px] h-[350px] rounded-full bg-neon/5 blur-[100px] pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Dark gradient overlay (lighter in the middle so matrix rain shows through) -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Corner HUD decorations -->
+  <div class="absolute top-24 left-5 md:top-28 md:left-10 font-orbitron text-[10px] text-neon/40 tracking-[4px] pointer-events-none" aria-hidden="true">
+  </div>
+  <div class="absolute top-24 right-5 md:top-28 md:right-10 font-orbitron text-[10px] text-neon/40 tracking-[4px] pointer-events-none flex items-center gap-2" aria-hidden="true">
+    <span class="live-dot"></span>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-5 max-w-6xl mx-auto w-full">
+
+    <!-- Eyebrow tag -->
+    <p class="hero-tag font-mono uppercase tracking-[6px] text-neon/70 text-xs md:text-sm mb-8 md:mb-10">
+      <span class="text-neon/40 select-none">// </span>Costa Rica &bull; Cantante Urbano Futurista
+    </p>
+
+    <!--
+      ┌─────────────────────────────────────────────────────────────────────┐
+      │  LOGO PLACEHOLDER                                                   │
+      │                                                                     │
+      │  Replace the <span> inside the <h1> below with your logo:           │
+      │    1. Save your logo to: src/assets/el-code-logo.svg (or .png)      │
+      │    2. Replace the inner content with:                               │
+      │       <img src="assets/el-code-logo.svg"                            │
+      │            alt="EL CODE"                                            │
+      │            class="mx-auto h-32 md:h-48 lg:h-56 w-auto" />           │
+      │                                                                     │
+      │  Recommended: SVG with neon green (#00FF9C) accent on transparent.  │
+      └─────────────────────────────────────────────────────────────────────┘
+    -->
+    <h1
+      id="hero-heading"
+      class="hero-title mb-10 md:mb-14"
+      aria-label="EL CODE">
+      <img src="ELCODELOGO.png"
+                  alt="EL CODE"
+                  class="mx-auto h-20 md:h-28 lg:h-36 w-auto"/>
+      <!-- 
+        <span
+        class="glitch display block tracking-[6px] md:tracking-[14px]"
+        style="font-size: clamp(3.5rem, 13vw, 11rem);"
+        data-text="EL CODE">
+        EL CODE
+      </span> 
+      -->
+    </h1>
+
+    <!-- Typewriter motto -->
+    <div
+      class="hero-motto min-h-[3.5rem] md:min-h-[3rem] mb-12 md:mb-14"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label="Frase de EL CODE">
+      <p class="font-mono text-base md:text-xl text-neon/80 max-w-2xl mx-auto tracking-wide">
+        <span class="text-neon/40 select-none">$ </span>{{ currentMotto() }}<span class="animate-blink text-neon ml-0.5" aria-hidden="true">_</span>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Scroll indicator line (no text) — decorative -->
+  <div
+    class="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2"
+    aria-hidden="true">
+    <div class="w-px h-16 bg-gradient-to-b from-transparent via-neon/60 to-transparent"></div>
+  </div>
+
+</section>

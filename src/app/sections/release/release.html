@@ -1,0 +1,131 @@
+<section
+  id="release"
+  class="relative min-h-[100dvh] flex flex-col py-24 px-5 md:px-10"
+  aria-labelledby="release-heading">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="reveal flex items-center gap-4 md:gap-6 mb-12 md:mb-16">
+      <span class="section-tag">[ 02 / LATEST DROP ]</span>
+      <div class="flex-1 neon-line"></div>
+      <span class="section-meta">
+        <span class="live-dot"></span>
+        NEW
+      </span>
+    </div>
+
+    <!-- 2-col layout -->
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+      <!-- Video card -->
+      <div class="reveal lg:col-span-7">
+
+        <!-- meta row -->
+        <div class="flex items-center justify-between mb-4 px-1 font-orbitron text-[10px] text-gray-500 tracking-[3px] uppercase">
+          <span>// ID: ELC-002</span>
+          <span>VIDEO/OFFICIAL</span>
+        </div>
+
+        <div class="glass neon-border rounded-3xl overflow-hidden p-3">
+          <div class="aspect-video rounded-2xl overflow-hidden bg-black">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/i8c_Rosojmc?si=llwIMrPbpKcD_zOV"
+              title="EL CODE — Nostalgia (Video Oficial)"
+              frameborder="0"
+              scrolling="no"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- progress decoration -->
+        <div class="flex items-center gap-3 mt-4 px-1">
+          <div class="flex-1 h-[2px] bg-white/10 rounded-full overflow-hidden">
+            <div class="h-full w-1/3 bg-gradient-to-r from-neon to-neon/30"></div>
+          </div>
+          <span class="font-orbitron text-[10px] text-gray-500 tracking-[2px]">02:50</span>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="reveal lg:col-span-5">
+
+        <!-- tag chips -->
+        <div class="flex flex-wrap items-center gap-2 mb-7">
+          <span class="glass px-3 py-1 rounded-full text-[10px] font-orbitron tracking-[3px] uppercase text-gray-300">Single</span>
+          <span class="glass px-3 py-1 rounded-full text-[10px] font-orbitron tracking-[3px] uppercase text-gray-300">2025</span>
+          <span class="neon-border px-3 py-1 rounded-full text-[10px] font-orbitron tracking-[3px] uppercase text-neon flex items-center gap-1.5">
+            <span class="live-dot"></span>
+            NEW DROP
+          </span>
+        </div>
+
+        <h2
+          id="release-heading"
+          class="display text-4xl md:text-6xl lg:text-7xl mb-7">
+          <span class="neon-text">&lt;NOSTALGIA&gt;</span>
+        </h2>
+
+        <p class="font-grotesk text-gray-300 text-lg leading-relaxed mb-9 max-w-md">
+          El sonido del futuro con el alma del pasado. Beats urbanos, letras que viven y estética futurista.
+        </p>
+
+        <!-- platform rows -->
+        <div class="space-y-2.5">
+
+          <a
+            href="#spotify-embed"
+            (click)="scrollTo($event, '#spotify-embed')"
+            class="flex items-center justify-between glass border border-transparent hover:border-neon/40 rounded-2xl px-5 py-4 hover:bg-neon/[0.06] transition-all duration-300 group min-h-[44px]"
+            aria-label="Escuchar Digital Nostalgia en Spotify">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.35-1.434-5.305-1.76-8.786-.963-.335.077-.67-.133-.746-.47-.077-.334.132-.67.47-.745 3.808-.871 7.076-.496 9.712 1.115.293.18.386.563.207.856zm1.223-2.722c-.226.367-.706.482-1.072.257-2.687-1.652-6.785-2.131-9.965-1.166-.413.127-.848-.105-.975-.517-.125-.413.108-.848.52-.975 3.632-1.102 8.147-.568 11.234 1.328.366.226.48.707.258 1.073zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71c-.493.15-1.016-.129-1.166-.623-.148-.495.13-1.016.625-1.166 3.55-1.077 9.456-.869 13.18 1.338.445.264.59.838.327 1.282-.264.443-.838.59-1.282.326z"/>
+              </svg>
+              <span class="font-grotesk font-medium text-sm md:text-base">Spotify</span>
+            </div>
+            <span class="font-orbitron text-[10px] tracking-[3px] text-gray-500 group-hover:text-neon transition-colors">PLAY →</span>
+          </a>
+
+          <a
+            href="#apple-music-embed"
+            (click)="scrollTo($event, '#apple-music-embed')"
+            class="flex items-center justify-between glass border border-transparent hover:border-neon/40 rounded-2xl px-5 py-4 hover:bg-neon/[0.06] transition-all duration-300 group min-h-[44px]"
+            aria-label="Escuchar Digital Nostalgia en Apple Music">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              </svg>
+              <span class="font-grotesk font-medium text-sm md:text-base">Apple Music</span>
+            </div>
+            <span class="font-orbitron text-[10px] tracking-[3px] text-gray-500 group-hover:text-neon transition-colors">PLAY →</span>
+          </a>
+
+          <a
+            href="https://youtube.com/@elcodecr/videos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between glass border border-transparent hover:border-neon/40 rounded-2xl px-5 py-4 hover:bg-neon/[0.06] transition-all duration-300 group min-h-[44px]"
+            aria-label="Ver Digital Nostalgia en YouTube (abre en nueva pestaña)">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 text-neon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span class="font-grotesk font-medium text-sm md:text-base">YouTube</span>
+            </div>
+            <span class="font-orbitron text-[10px] tracking-[3px] text-gray-500 group-hover:text-neon transition-colors">WATCH →</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
