@@ -7,12 +7,14 @@ import { GalleryComponent } from './sections/gallery/gallery';
 import { StreamingComponent } from './sections/streaming/streaming';
 import { SocialsComponent } from './sections/socials/socials';
 import { FooterComponent } from './sections/footer/footer';
+import { LoaderComponent } from './shared/loader/loader';
 import { ScrollService } from './services/scroll.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    LoaderComponent,
     NavbarComponent,
     HeroComponent,
     AboutComponent,

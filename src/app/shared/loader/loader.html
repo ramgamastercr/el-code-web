@@ -1,0 +1,71 @@
+@if (visible()) {
+  <div
+    class="ldr"
+    [class.ldr--exit]="exiting()"
+    role="status"
+    aria-label="Cargando EL CODE — por favor espere">
+
+    <!-- Scanlines -->
+    <div class="ldr-scanlines" aria-hidden="true"></div>
+
+    <!-- Ambient radial glow -->
+    <div class="ldr-glow" aria-hidden="true"></div>
+
+    <!-- Corner brackets -->
+    <span class="ldr-corner ldr-corner--tl" aria-hidden="true"></span>
+    <span class="ldr-corner ldr-corner--tr" aria-hidden="true"></span>
+    <span class="ldr-corner ldr-corner--bl" aria-hidden="true"></span>
+    <span class="ldr-corner ldr-corner--br" aria-hidden="true"></span>
+
+    <!-- ── Main content ───────────────────────────────── -->
+    <div class="ldr-content">
+
+      <!-- Logo with glitch layers -->
+      <div class="ldr-logo-wrap" aria-hidden="true">
+        <img src="ELCODELOGO.png" alt="" class="ldr-logo ldr-logo--g1" />
+        <img src="ELCODELOGO.png" alt="" class="ldr-logo ldr-logo--g2" />
+        <img src="ELCODELOGO.png" alt="EL CODE" class="ldr-logo ldr-logo--main" />
+      </div>
+
+      <!-- Terminal window -->
+      <div class="ldr-terminal">
+
+        <!-- Title bar -->
+        <div class="ldr-tbar">
+          <span class="ldr-dot" style="background:#ef4444aa"></span>
+          <span class="ldr-dot" style="background:#eab308aa"></span>
+          <span class="ldr-dot" style="background:#00FF9C"></span>
+          <span class="ldr-tbar-title">EL_CODE_SYSTEM — BOOT SEQUENCE</span>
+          <span class="ldr-tbar-live">
+            <span class="ldr-live-dot"></span>REC
+          </span>
+        </div>
+
+        <!-- Console output -->
+        <div class="ldr-tbody">
+          @for (line of lines(); track $index) {
+            <div class="ldr-line">
+              <span class="ldr-prompt">›</span>
+              <span>{{ line.text }}</span>
+            </div>
+          }
+          @if (!exiting()) {
+            <span class="ldr-cursor">_</span>
+          }
+        </div>
+
+      </div>
+
+      <!-- Progress bar -->
+      <div class="ldr-prog-track">
+        <div class="ldr-prog-fill" [style.width.%]="progress()"></div>
+      </div>
+      <div class="ldr-prog-meta">
+        <span class="ldr-prog-label">CARGANDO SISTEMA</span>
+        <span class="ldr-prog-pct">{{ progress() }}%</span>
+      </div>
+
+    </div>
+
+  </div>
+}

@@ -1,0 +1,330 @@
+/* ─────────────────────────────────────────────
+   Overlay
+───────────────────────────────────────────── */
+.ldr {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+/* CRT power-off exit */
+.ldr--exit {
+  animation: ldr-crt-off 0.7s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+@keyframes ldr-crt-off {
+  0%   { transform: scaleY(1) scaleX(1);    opacity: 1; filter: brightness(1); }
+  18%  { transform: scaleY(1) scaleX(1);    opacity: 1; filter: brightness(3); }
+  40%  { transform: scaleY(0.02) scaleX(1.04); opacity: 1; filter: brightness(10); }
+  65%  { transform: scaleY(0.015) scaleX(1.05); opacity: 1; filter: brightness(6); }
+  100% { transform: scaleY(0)  scaleX(1.05); opacity: 0; filter: brightness(0); }
+}
+
+/* ─────────────────────────────────────────────
+   Scanlines
+───────────────────────────────────────────── */
+.ldr-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 255, 156, 0.022) 3px,
+    rgba(0, 255, 156, 0.022) 6px
+  );
+  animation: ldr-scan 10s linear infinite;
+}
+
+@keyframes ldr-scan {
+  from { background-position: 0 0; }
+  to   { background-position: 0 60px; }
+}
+
+/* ─────────────────────────────────────────────
+   Ambient glow
+───────────────────────────────────────────── */
+.ldr-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%,
+    rgba(0, 255, 156, 0.06) 0%,
+    transparent 70%);
+  animation: ldr-pulse 3.5s ease-in-out infinite;
+}
+
+@keyframes ldr-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.06); }
+}
+
+/* ─────────────────────────────────────────────
+   Corner brackets
+───────────────────────────────────────────── */
+.ldr-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-style: solid;
+  border-color: rgba(0, 255, 156, 0.35);
+  animation: ldr-corner-blink 2.5s ease-in-out infinite;
+}
+
+.ldr-corner--tl { top: 18px; left: 18px;  border-width: 2px 0 0 2px; }
+.ldr-corner--tr { top: 18px; right: 18px; border-width: 2px 2px 0 0; }
+.ldr-corner--bl { bottom: 18px; left: 18px;  border-width: 0 0 2px 2px; }
+.ldr-corner--br { bottom: 18px; right: 18px; border-width: 0 2px 2px 0; }
+
+@keyframes ldr-corner-blink {
+  0%, 100% { border-color: rgba(0, 255, 156, 0.25); }
+  50%       { border-color: rgba(0, 255, 156, 0.7);  }
+}
+
+/* ─────────────────────────────────────────────
+   Content wrapper
+───────────────────────────────────────────── */
+.ldr-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1.25rem;
+}
+
+/* ─────────────────────────────────────────────
+   Logo + glitch
+───────────────────────────────────────────── */
+.ldr-logo-wrap {
+  position: relative;
+  margin-bottom: 2.25rem;
+}
+
+.ldr-logo {
+  display: block;
+  height: 52px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .ldr-logo { height: 68px; }
+}
+
+/* Main logo */
+.ldr-logo--main {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 156, 0.65));
+  animation: ldr-logo-flicker 4.5s ease-in-out infinite;
+}
+
+@keyframes ldr-logo-flicker {
+  0%, 89%, 100% { opacity: 1; filter: drop-shadow(0 0 20px rgba(0,255,156,0.65)); }
+  90%  { opacity: 0.8; filter: drop-shadow(0 0 44px rgba(0,255,156,1)); }
+  91%  { opacity: 1;   filter: drop-shadow(0 0 20px rgba(0,255,156,0.65)); }
+  92%  { opacity: 0.85; filter: drop-shadow(0 0 36px rgba(0,255,156,0.9)); }
+  93%  { opacity: 1;   filter: drop-shadow(0 0 20px rgba(0,255,156,0.65)); }
+}
+
+/* Glitch ghost 1 — cyan-shifted, clips top slice */
+.ldr-logo--g1 {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  filter: hue-rotate(80deg) saturate(3);
+  animation: ldr-g1 4.5s ease-in-out infinite;
+}
+
+@keyframes ldr-g1 {
+  0%, 88%, 100% { opacity: 0; transform: none; clip-path: none; }
+  89%  { opacity: 0.55; transform: translateX(-5px); clip-path: inset(15% 0 55% 0); }
+  89.6%{ opacity: 0;    transform: none;              clip-path: none; }
+  90.2%{ opacity: 0.45; transform: translateX(5px);  clip-path: inset(60% 0 8% 0); }
+  91%  { opacity: 0; }
+}
+
+/* Glitch ghost 2 — magenta-shifted, clips bottom slice */
+.ldr-logo--g2 {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  filter: hue-rotate(-80deg) saturate(3);
+  animation: ldr-g2 4.5s ease-in-out infinite;
+}
+
+@keyframes ldr-g2 {
+  0%, 88%, 100% { opacity: 0; transform: none; clip-path: none; }
+  89.4%{ opacity: 0.45; transform: translateX(6px);  clip-path: inset(35% 0 30% 0); }
+  90%  { opacity: 0;    transform: none;              clip-path: none; }
+  90.8%{ opacity: 0.5;  transform: translateX(-4px); clip-path: inset(70% 0 5% 0); }
+  91.5%{ opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────
+   Terminal window
+───────────────────────────────────────────── */
+.ldr-terminal {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(0, 255, 156, 0.18);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  margin-bottom: 1rem;
+  box-shadow:
+    0 0 0 1px rgba(0,255,156,0.05),
+    0 0 60px rgba(0,255,156,0.04),
+    inset 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* Title bar */
+.ldr-tbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.45);
+}
+
+.ldr-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ldr-tbar-title {
+  margin-left: 8px;
+  flex: 1;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+
+.ldr-tbar-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(0,255,156,0.55);
+  text-transform: uppercase;
+}
+
+.ldr-live-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00FF9C;
+  animation: ldr-blink 1s step-end infinite;
+}
+
+@keyframes ldr-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Console body */
+.ldr-tbody {
+  padding: 14px 16px 16px;
+  min-height: 144px;
+  font-family: ui-monospace, 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 11.5px;
+  line-height: 1.9;
+  color: rgba(0, 255, 156, 0.82);
+  letter-spacing: 0.3px;
+}
+
+@media (min-width: 768px) {
+  .ldr-tbody {
+    font-size: 12.5px;
+    padding: 16px 20px 18px;
+    min-height: 160px;
+  }
+}
+
+.ldr-line {
+  display: flex;
+  gap: 9px;
+  animation: ldr-line-in 0.12s ease-out both;
+}
+
+@keyframes ldr-line-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.ldr-prompt {
+  color: rgba(0, 255, 156, 0.35);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.ldr-cursor {
+  display: inline-block;
+  color: #00FF9C;
+  font-weight: bold;
+  animation: ldr-blink 0.75s step-end infinite;
+}
+
+/* ─────────────────────────────────────────────
+   Progress bar
+───────────────────────────────────────────── */
+.ldr-prog-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 7px;
+}
+
+.ldr-prog-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(to right, rgba(0,255,156,0.4), #00FF9C);
+  box-shadow: 0 0 12px rgba(0,255,156,0.9);
+  transition: width 0.65s ease-out;
+}
+
+.ldr-prog-meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ldr-prog-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+}
+
+.ldr-prog-pct {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: rgba(0, 255, 156, 0.7);
+}
