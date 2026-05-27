@@ -27,7 +27,7 @@ export class NavbarComponent {
     { label: 'Release',   target: '#release' },
     { label: 'Galería',   target: '#gallery' },
     { label: 'Streaming', target: '#streaming' },
-    { label: 'Redes',     target: '#socials' },
+    { label: 'Contacto',     target: '#socials' },
   ];
 
   constructor() {
