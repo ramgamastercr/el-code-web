@@ -12,6 +12,30 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+app.use((_req, res, next) => {
+  res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  res.setHeader(
+    'Content-Security-Policy',
+    [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "frame-src https://www.youtube-nocookie.com https://www.youtube.com https://open.spotify.com https://embed.music.apple.com https://www.googletagmanager.com",
+      "img-src 'self' data: https:",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net",
+      "object-src 'none'",
+      "base-uri 'self'",
+    ].join('; '),
+  );
+  next();
+});
+
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
